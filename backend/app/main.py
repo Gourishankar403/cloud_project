@@ -42,6 +42,11 @@ def seed_default_farm():
             zone = Zone(id=1, farm_id=1, name="Zone Alpha - North Field", crop_type="Wheat", soil_type="Loam", target_moisture_min=20.0, target_moisture_max=60.0, irrigation_limits_mm=50.0)
             db.add(zone)
             db.commit()
+            
+        # Automatically launch continuous edge simulation in background
+        import asyncio
+        from app.services.simulator import simulator
+        asyncio.create_task(simulator.run_simulation(farm_id=1, zone_id=1, scenario="gradually_decreasing_moisture", interval=5))
     except Exception as e:
         print(f"[Seed] Startup note: {e}")
     finally:
