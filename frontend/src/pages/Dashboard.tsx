@@ -26,7 +26,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart
 
 
 
-const API_URL = 'http://localhost:8003/api/v1';
+import { API_URL } from '../config';
 
 
 

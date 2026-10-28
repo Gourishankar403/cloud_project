@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8003/api/v1';
+import { API_URL } from '../config';
 
 export default function AgentHistory() {
   const [workflows, setWorkflows] = useState<any[]>([]);
